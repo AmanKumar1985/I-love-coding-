@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Animation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
+    background:linear-gradient(-45deg,#ff416c,#ff4b2b,#1e3c72,#2a5298);
+    background-size:400% 400%;
+    animation:bg 8s ease infinite;
+    overflow:hidden;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.heart{
+    position:relative;
+    width:120px;
+    height:120px;
+    background:red;
+    transform:rotate(-45deg);
+    animation:beat 1s infinite;
+    box-shadow:0 0 30px red;
+}
+
+.heart:before,
+.heart:after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:red;
+    border-radius:50%;
+}
+
+.heart:before{
+    top:-60px;
+    left:0;
+}
+
+.heart:after{
+    left:60px;
+    top:0;
+}
+
+@keyframes beat{
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+    50%{
+        transform:rotate(-45deg) scale(1.25);
+    }
+}
+
+h1{
+    margin-top:60px;
+    color:white;
+    font-size:40px;
+    font-family:Arial,sans-serif;
+    text-shadow:0 0 20px white;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px white;
+    }
+    to{
+        text-shadow:0 0 30px yellow,0 0 50px red;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart"></div>
+
+<h1>I ❤️ Love Coding</h1>
+
+</body>
+</html>
